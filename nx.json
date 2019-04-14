@@ -9,9 +9,10 @@
   },
   "projects": {
     "api": {
-      "tags": [
-        "api"
-      ]
+      "tags": ["api"]
+    },
+    "client": {
+      "tags": ["client"]
     }
   }
 }
