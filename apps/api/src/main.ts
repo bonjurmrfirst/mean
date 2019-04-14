@@ -2,6 +2,8 @@
 import * as http from 'http';
 import * as express from 'express';
 import * as morgan from 'morgan';
+import { environment } from './environments/environment';
+import * as path from 'path';
 
 // Server/App configuration
 const port = process.env.port || 3333;
@@ -10,6 +12,10 @@ const app = express();
 app.use(morgan('combined'));
 
 const server = http.createServer(app);
+
+if (environment.production) {
+  app.use(express.static(path.join(__dirname , '../client')));
+}
 
 // WebSocket
 const io = require('socket.io')(http);
