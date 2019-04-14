@@ -30,6 +30,12 @@ app.get('/api', (req, res) => {
   res.send({message: `Welcome to api!`});
 });
 
+const chat = [`Hello there!`, `What's up?`];
+
+app.get('/api/chat', (req, res) => {
+  res.send(chat);
+});
+
 // Bootstrap
 server.listen(port, (err) => {
   if (err) {
