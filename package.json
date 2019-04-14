@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:backend": "ng serve api",
     "build": "ng build",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
