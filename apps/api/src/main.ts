@@ -1,21 +1,31 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- **/
-
+// Imports
+import * as http from 'http';
 import * as express from 'express';
 import * as morgan from 'morgan';
 
-const app = express();
+// Server/App configuration
+const port = process.env.port || 3333;
 
+const app = express();
 app.use(morgan('combined'));
 
+const server = http.createServer(app);
+
+// WebSocket
+const io = require('socket.io')(http);
+io.origins('*:*');
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+// API
 app.get('/api', (req, res) => {
   res.send({message: `Welcome to api!`});
 });
 
-const port = process.env.port || 3333;
-app.listen(port, (err) => {
+// Bootstrap
+server.listen(port, (err) => {
   if (err) {
     console.error(err);
   }

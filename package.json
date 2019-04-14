@@ -38,10 +38,11 @@
     "@angular/platform-browser-dynamic": "^7.0.0",
     "@angular/router": "^7.0.0",
     "core-js": "^2.5.4",
-    "rxjs": "6.3.3",
-    "zone.js": "^0.8.26",
     "express": "4.16.3",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "rxjs": "6.3.3",
+    "socket.io": "^2.2.0",
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular/compiler-cli": "~7.2.0",
