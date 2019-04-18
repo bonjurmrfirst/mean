@@ -18,7 +18,7 @@ if (environment.production) {
 }
 
 // WebSocket
-const io = require('socket.io')(http);
+const io = require('socket.io')(server);
 io.origins('*:*');
 
 io.on('connection', function(socket){
