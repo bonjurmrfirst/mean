@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.history = this.appService.getHistory();
+    this.appService.connect();
   }
 
 }
