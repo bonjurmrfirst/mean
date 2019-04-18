@@ -4,6 +4,7 @@ import * as express from 'express';
 import * as morgan from 'morgan';
 import { environment } from './environments/environment';
 import * as path from 'path';
+import { MessegeModel } from '../../shared/messege.model';
 
 // Server/App configuration
 const port = process.env.port || 3333;
@@ -24,7 +25,7 @@ io.origins('*:*');
 io.on('connection', function(socket){
   console.log('a user connected');
 
-  socket.on('event', data => {
+  socket.on('event', (data: MessegeModel) => {
     console.log(data);
 
     socket.broadcast.emit('event', data);
@@ -36,7 +37,7 @@ app.get('/api', (req, res) => {
   res.send({message: `Welcome to api!`});
 });
 
-const chat = [`Hello there!`, `What's up?`];
+const chat: MessegeModel[] = [{ msg: `Hello there!` }, { msg: `What's up?` }];
 
 app.get('/api/chat', (req, res) => {
   res.send(chat);

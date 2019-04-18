@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 import { Observable } from 'rxjs';
+import { MessegeModel } from '../../../shared/messege.model';
 
 @Component({
   selector: 'mean-root',
@@ -9,15 +10,15 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  public history: Observable<string[]>;
-  public chat: string[] = [];
+  public history: Observable<MessegeModel[]>;
+  public chat: MessegeModel[] = [];
 
   constructor(private appService: AppService) {}
 
   public ngOnInit(): void {
     this.history = this.appService.getHistory();
     this.appService.connect().subscribe(event => {
-      this.chat.push(event as any);
+      this.chat.push(event);
       console.log(this.chat);
     });
   }
