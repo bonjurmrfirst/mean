@@ -10,13 +10,15 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
 
   public history: Observable<string[]>;
+  public chat: string[] = [];
 
   constructor(private appService: AppService) {}
 
   public ngOnInit(): void {
     this.history = this.appService.getHistory();
     this.appService.connect().subscribe(event => {
-      console.log(event);
+      this.chat.push(event as any);
+      console.log(this.chat);
     });
   }
 

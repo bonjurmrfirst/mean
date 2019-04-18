@@ -21,6 +21,7 @@ export class AppService {
       this.socket = io(this.url);
 
       this.socket.on('event', data => {
+        console.log(data);
         observer.next(data);
       });
     });
