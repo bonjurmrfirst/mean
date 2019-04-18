@@ -23,6 +23,12 @@ io.origins('*:*');
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  socket.on('event', data => {
+    console.log(data);
+
+    socket.broadcast.emit(data);
+  });
 });
 
 // API

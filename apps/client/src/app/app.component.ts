@@ -15,7 +15,13 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.history = this.appService.getHistory();
-    this.appService.connect();
+    this.appService.connect().subscribe(event => {
+      console.log(event);
+    });
+  }
+
+  public onSend(msg: string): void {
+    this.appService.emit(msg);
   }
 
 }

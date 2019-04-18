@@ -3,3 +3,9 @@
     {{ item }}
   </p>
 </div>
+
+<label>
+  Message:
+  <input #msg>
+</label>
+<button (click)="onSend(msg.value)">Send</button>

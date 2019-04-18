@@ -26,8 +26,8 @@ export class AppService {
     });
   }
 
-  public emit() {
-    this.socket.emit('event', { msg: 'my msg' });
+  public emit(msg: string) {
+    this.socket.emit('event', { msg });
   }
 
 }
